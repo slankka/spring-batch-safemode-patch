@@ -1,6 +1,6 @@
 package io.github.slankka.springbatch.safemode.springcloudtaskexample;
 
-import io.github.slankka.springbatch.safemode.patch.SafeModeMysqlIncreamentFactory;
+import io.github.slankka.springbatch.safemode.patch.SafeModeMysqlIncrementFactory;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.cloud.task.configuration.TaskProperties;
 import org.springframework.cloud.task.repository.dao.JdbcTaskExecutionDao;
@@ -74,7 +74,7 @@ public class SafeTaskExecutionDaoFactoryBean implements FactoryBean<TaskExecutio
     }
 
     private void buildTaskExecutionDao(DataSource dataSource) {
-        SafeModeMysqlIncreamentFactory incrementerFactory = new SafeModeMysqlIncreamentFactory(dataSource);
+        SafeModeMysqlIncrementFactory incrementerFactory = new SafeModeMysqlIncrementFactory(dataSource);
         this.dao = new JdbcTaskExecutionDao(dataSource, this.tablePrefix);
         String databaseType;
         try {

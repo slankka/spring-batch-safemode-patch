@@ -17,12 +17,12 @@ import javax.sql.DataSource;
  *
  * @author slankka on 2019/8/30.
  */
-public class SafeModeMysqlIncreamentFactory extends DefaultDataFieldMaxValueIncrementerFactory {
+public class SafeModeMysqlIncrementFactory extends DefaultDataFieldMaxValueIncrementerFactory {
 
     private DataSource dataSource;
     private String incrementerColumnName = "ID";
 
-    public SafeModeMysqlIncreamentFactory(DataSource dataSource) {
+    public SafeModeMysqlIncrementFactory(DataSource dataSource) {
         super(dataSource);
         this.dataSource = dataSource;
     }
@@ -37,7 +37,7 @@ public class SafeModeMysqlIncreamentFactory extends DefaultDataFieldMaxValueIncr
     public DataFieldMaxValueIncrementer getIncrementer(String incrementerType, String incrementerName) {
         DatabaseType databaseType = DatabaseType.valueOf(incrementerType.toUpperCase());
         if (databaseType == DatabaseType.MYSQL) {
-            SafeModeMysqlMaxValueIncreamenter mySQLMaxValueIncrementer = new SafeModeMysqlMaxValueIncreamenter(dataSource, incrementerName, incrementerColumnName);
+            SafeModeMysqlMaxValueIncrementer mySQLMaxValueIncrementer = new SafeModeMysqlMaxValueIncrementer(dataSource, incrementerName, incrementerColumnName);
             mySQLMaxValueIncrementer.setUseNewConnection(true);
             return mySQLMaxValueIncrementer;
         }

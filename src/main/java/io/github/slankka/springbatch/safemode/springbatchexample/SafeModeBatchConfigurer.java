@@ -1,6 +1,6 @@
 package io.github.slankka.springbatch.safemode.springbatchexample;
 
-import io.github.slankka.springbatch.safemode.patch.SafeModeMysqlIncreamentFactory;
+import io.github.slankka.springbatch.safemode.patch.SafeModeMysqlIncrementFactory;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.batch.core.configuration.BatchConfigurationException;
@@ -115,7 +115,7 @@ public class SafeModeBatchConfigurer implements BatchConfigurer {
      */
     protected JobRepository createJobRepository() throws Exception {
         JobRepositoryFactoryBean factory = new JobRepositoryFactoryBean();
-        factory.setIncrementerFactory(new SafeModeMysqlIncreamentFactory(dataSource));
+        factory.setIncrementerFactory(new SafeModeMysqlIncrementFactory(dataSource));
         factory.setDataSource(dataSource);
         factory.setTransactionManager(getTransactionManager());
         factory.afterPropertiesSet();

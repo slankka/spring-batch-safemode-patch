@@ -22,7 +22,7 @@ import java.sql.Statement;
  *  </code>
  * @author slankka on 2019/8/30.
  */
-public class SafeModeMysqlMaxValueIncreamenter extends AbstractColumnMaxValueIncrementer {
+public class SafeModeMysqlMaxValueIncrementer extends AbstractColumnMaxValueIncrementer {
 
     /**
      * The SQL string for retrieving the new sequence value.
@@ -52,7 +52,7 @@ public class SafeModeMysqlMaxValueIncreamenter extends AbstractColumnMaxValueInc
      * @see #setIncrementerName
      * @see #setColumnName
      */
-    public SafeModeMysqlMaxValueIncreamenter() {
+    public SafeModeMysqlMaxValueIncrementer() {
     }
 
     /**
@@ -62,7 +62,7 @@ public class SafeModeMysqlMaxValueIncreamenter extends AbstractColumnMaxValueInc
      * @param incrementerName the name of the sequence table to use
      * @param columnName      the name of the column in the sequence table to use
      */
-    public SafeModeMysqlMaxValueIncreamenter(DataSource dataSource, String incrementerName, String columnName) {
+    public SafeModeMysqlMaxValueIncrementer(DataSource dataSource, String incrementerName, String columnName) {
         super(dataSource, incrementerName, columnName);
     }
 
