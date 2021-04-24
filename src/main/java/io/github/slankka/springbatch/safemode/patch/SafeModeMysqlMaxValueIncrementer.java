@@ -116,7 +116,7 @@ public class SafeModeMysqlMaxValueIncrementer extends AbstractColumnMaxValueIncr
                 String columnName = getColumnName();
                 try {
                     stmt.executeUpdate("update " + getIncrementerName() + " set " + columnName +
-                            " = last_insert_id(" + columnName + " + " + getCacheSize() + ") where " +  columnName + " > 0");
+                            " = last_insert_id(" + columnName + " + " + getCacheSize() + ") where " +  columnName + " >= 0");
                 } catch (SQLException ex) {
                     throw new DataAccessResourceFailureException("Could not increment " + columnName + " for " +
                             getIncrementerName() + " sequence table", ex);
